@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name_book: MyString
+  author: MyString
+  publisher: MyString
+  number_page: 1
+  category: MyString
+
+two:
+  user: two
+  name_book: MyString
+  author: MyString
+  publisher: MyString
+  number_page: 1
+  category: MyString
