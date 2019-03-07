@@ -23,5 +23,4 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :password_digest, presence: true, length:
     {minimum: Settings.user.password.min_length}
-
 end
