@@ -1,0 +1,18 @@
+<% provide :title, t("book_detail") %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @book.book_img.url(:book_show), class: "book-show" %>
+  </div>
+
+  <div class="col-md-8">
+    <div class="book-info">
+      <h2 class="book-title"><%= @book.title %></h2>
+      <h3 class="book-author">
+        <span><%= t "book.by" %></span><%= @book.author %>
+      </h3>
+      <h2 class="avg-rating"><%= t "book.avg_rate" %></h2>
+      <p class="book-desc"><%= @book.content %></p>
+    </div>
+  </div>
+</div>

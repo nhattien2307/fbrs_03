@@ -1,4 +1,8 @@
 en:
+  book_detail: "Book_detail"
+  book_new: "Book_new"
+  book_index: "Book_index"
+  no_data: "Data not found"
   sign_up: "Sign Up"
   sign_in: "Sign In"
   add_book: "Add Book"
@@ -10,3 +14,16 @@ en:
     welcome: "Welcome to the Book Reviewing System!"
     introduce: "This is the Home page of System"
     sign_up_now: "Sign up now!"
+  book:
+    by: "From: "
+    avg_rate: "Average Rating"
+    add: "Add a new books"
+    created: "Created a new book!"
+  activerecord:
+    attributes:
+      book:
+        title: "Book title"
+        content: "Content"
+        category_id: "Category"
+        author: "Author"
+        quanlity: "Quanlity"
