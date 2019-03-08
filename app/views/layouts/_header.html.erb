@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to t("book_review"), root_path, class: "navbar-brand", id: "logo" %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to t("sign_up"), "#" %></li>
+      <li><%= link_to t("sign_in"), "#" %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= t "categories" %><span class="caret"></span></a>
+      </li>
+      <li><%= link_to t("add_book"), "#" %></li>
+    </ul>
+  </div>
+</nav>

@@ -1,2 +1,12 @@
 en:
-  title: "Fbrs03"
+  sign_up: "Sign Up"
+  sign_in: "Sign In"
+  add_book: "Add Book"
+  title: "Book Review"
+  design: "Design by NhatTien"
+  book_review: "Book Review"
+  categories: "Categories"
+  static_pages:
+    welcome: "Welcome to the Book Reviewing System!"
+    introduce: "This is the Home page of System"
+    sign_up_now: "Sign up now!"
