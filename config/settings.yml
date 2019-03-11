@@ -11,3 +11,7 @@ category:
 book:
   title_max: 80
   author_max: 50
+  per_page: 8
+img:
+  book_index: "250x350>"
+  book_show: "325x475>"
