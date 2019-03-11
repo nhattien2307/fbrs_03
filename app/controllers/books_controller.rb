@@ -24,9 +24,24 @@ class BooksController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    if @book.update book_params
+      flash[:success] = t "book.edited"
+      redirect_to book_path(@book)
+    else
+      render :edit
+    end
+  end
 
-  def destroy; end
+  def destroy
+    if @book.destroy
+      flash[:success] = t "book.delete_book"
+      redirect_to books_path
+    else
+      flash[:danger] = t "book.unsuccessfully_delete"
+      redirect_to root_path
+    end
+  end
 
   private
 
