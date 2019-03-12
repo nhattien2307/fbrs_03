@@ -1,11 +1,11 @@
 <% provide :title, @user.name %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-8">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
+      <h1><%= gravatar_for @user %></h1><br>
+      <h2><%= @user.name %></h2><br>
+      <h2><%= t("phone_num") %><%= @user.phone %></h2><br>
+      <h2><%= t("address") %><%= @user.address %></h2><br>
     </section>
   </aside>
 </div>
