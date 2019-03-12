@@ -16,3 +16,5 @@ book:
 img:
   book_index: "250x350>"
   book_show: "325x475>"
+session:
+  remember_me: "1"

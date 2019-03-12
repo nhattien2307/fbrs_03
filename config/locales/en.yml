@@ -1,4 +1,16 @@
 en:
+  login_plz: "Please log in to continue!"
+  remember_me: "Remember me on this computer"
+  log_in: "Log in"
+  log_out: "Log out"
+  setting: "Settings"
+  profile: "Profile"
+  account: Account
+  user: "Users"
+  session_error: "Invalid email/password combination"
+  forgot: "Forgot password?"
+  sign_up_now: "Sign up now!"
+  new_user: "New User?"
   create_button: "Create my account"
   err: "The form contains %{count_err}."
   sure: "Are you sure?"
