@@ -1,6 +1,11 @@
 en:
+  sure: "Are you sure?"
+  delete: "Delete"
+  edit: "Edit"
+  back: "Back"
   book_detail: "Book_detail"
   book_new: "Book_new"
+  book_edit: "Book_edit"
   book_index: "Book_index"
   no_data: "Data not found"
   sign_up: "Sign Up"
@@ -19,6 +24,10 @@ en:
     avg_rate: "Average Rating"
     add: "Add a new books"
     created: "Created a new book!"
+    edited: "Edited a book!"
+    edit: "Edit book"
+    delete_book: "Deleted a book!"
+    unsuccessfully_delete: "delete unsuccessfully!"
   activerecord:
     attributes:
       book:
