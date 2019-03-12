@@ -25,7 +25,9 @@ class User < ApplicationRecord
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
   validates :password_digest, presence: true, length:
-    {minimum: Settings.user.password.min_length}
+    {minimum: Settings.user.password.min_length}, allow_nil: true
+
+  enum role: {user: 0, admin: 1}
 
   class << self
     def digest string
