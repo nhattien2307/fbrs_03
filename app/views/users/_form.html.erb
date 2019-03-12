@@ -1,0 +1,25 @@
+<%= form_for @user, html: {multipart: true} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-inputs">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control"  %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control"  %>
+
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: "form-control"  %>
+
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control"  %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control"  %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control"  %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit yield(:button_text), class: "btn-custom2" %>
+  </div>
+<% end %>
