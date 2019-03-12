@@ -1,4 +1,6 @@
 en:
+  create_button: "Create my account"
+  err: "The form contains %{count_err}."
   sure: "Are you sure?"
   delete: "Delete"
   edit: "Edit"
@@ -28,6 +30,11 @@ en:
     edit: "Edit book"
     delete_book: "Deleted a book!"
     unsuccessfully_delete: "delete unsuccessfully!"
+  user:
+    created: "Created a new account!"
+    updated: "Edited a account!"
+    deleted: "Deleted a account!"
+    unsuccessfully_delete: "delete unsuccessfully!"
   activerecord:
     attributes:
       book:
@@ -36,3 +43,10 @@ en:
         category_id: "Category"
         author: "Author"
         quanlity: "Quanlity"
+      user:
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        address: "Address"
+        password: "Password"
+        password_confirmation: "Password Confirmation"

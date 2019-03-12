@@ -5,6 +5,7 @@ user:
     max_length: 255
   password:
     min_length: 6
+  size: 80
 category:
   name:
     min: 3

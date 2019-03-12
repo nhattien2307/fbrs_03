@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  before_save :downcase_email
+
   validates :name, presence: true, length:
     {maximum: Settings.user.name.max_length}
   validates :email, presence: true, length:
@@ -23,4 +25,10 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :password_digest, presence: true, length:
     {minimum: Settings.user.password.min_length}
+
+  private
+
+  def downcase_email
+    self.email = email.downcase
+  end
 end
