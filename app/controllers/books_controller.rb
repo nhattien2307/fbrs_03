@@ -1,9 +1,9 @@
 class BooksController < ApplicationController
   before_action :find_book, except: %i(index new create)
+  before_action :logged_in_user, except: %i(new create show)
 
   def index
-    @books = Book.ordered.paginate page: params[:page],
-      per_page: Settings.book.per_page
+    @books = Book.by_categories(params[:category_id]).ordered
   end
 
   def new
@@ -44,6 +44,13 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def logged_in_user
+    return if logged_in?
+    store_location
+    flash[:danger] = t "login_plz"
+    redirect_to login_path
+  end
 
   def book_params
     params.require(:book).permit :title, :content, :category_id, :author,

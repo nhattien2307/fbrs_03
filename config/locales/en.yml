@@ -1,4 +1,7 @@
 en:
+  no_book: "There is no books currently in this category"
+  all: "All books"
+  selection: "Select a category"
   phone_num: "Phone number: "
   address: "Address: "
   login_plz: "Please log in to continue!"

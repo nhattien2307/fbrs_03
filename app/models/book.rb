@@ -13,4 +13,6 @@ class Book < ApplicationRecord
   validates :author, presence: true, length: {maximum: Settings.book.author_max}
 
   scope :ordered, ->{order "created_at DESC"}
+  scope :by_categories,
+    ->(category_ids){where category_id: category_ids if category_ids.present?}
 end
