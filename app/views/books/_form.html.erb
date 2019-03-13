@@ -1,8 +1,8 @@
 <%= simple_form_for @book, html: {multipart: true} do |f| %>
   <%= f.file_field :book_img %>
+  <%= f.select :category_id, options_for_select(load_categories), prompt: t("selection") %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.input :category_id %>
   <%= f.input :author %>
   <%= f.input :quanlity %>
   <%= f.button :submit, class: "btn-custom2" %>

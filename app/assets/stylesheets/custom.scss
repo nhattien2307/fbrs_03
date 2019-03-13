@@ -190,9 +190,23 @@ footer {
   }
 }
 
+.clearfix {
+  overflow: auto;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 /* current-category styles */
-.current-category {
-  margin-bottom: 40px;
+.all-book {
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
 }
 
 /* Reviews styles */

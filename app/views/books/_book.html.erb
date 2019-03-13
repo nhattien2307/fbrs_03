@@ -1,0 +1,8 @@
+<div class="col-lg-3">
+  <div class="book">
+    <a href="/books/<%= book.id %>">
+      <%= image_tag book.book_img.url(:book_index), class: "image"%>
+    </a>
+    <p><%= book.title %></p>
+  </div>
+</div>

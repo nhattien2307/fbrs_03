@@ -3,6 +3,14 @@
 <div class="col-md-6 col-md-offset-3">
   <div class="edit-book-form">
     <h1><%= t "book.edit" %></h1>
-    <%= render "form" %>
+    <%= simple_form_for @book, html: {multipart: true} do |f| %>
+      <%= f.file_field :book_img %>
+      <%= f.select :category_id, load_categories %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.input :author %>
+      <%= f.input :quanlity %>
+      <%= f.button :submit, class: "btn-custom2" %>
+    <% end %>
   </div>
 </div>
