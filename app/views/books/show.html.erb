@@ -12,7 +12,24 @@
         <span><%= t "book.by" %></span><%= @book.author %>
       </h3>
       <h2 class="avg-rating"><%= t "book.avg_rate" %></h2>
+      <div class="average_review-rating" data-score=<%= @book.avg_rate %>></div>
+      <span class="number-of-reviews"><%= t("book.base", count: @book.reviews.count) %>
+      </span>
       <p class="book-desc"><%= @book.content %></p>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="reviews">
+      <h1><%= t "review.reviews" %></h1>
+      <%= render @book.reviews %>
+      <div>
+      <%= link_to t("add_review"), new_book_review_path(@book), class: "btn-custom" %>
+      </div>
     </div>
   </div>
 </div>

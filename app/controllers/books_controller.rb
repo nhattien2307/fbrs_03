@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
+  before_action :logged_in_user, only: %i(new edit)
   before_action :find_book, except: %i(index new create)
-  before_action :logged_in_user, except: %i(new create show)
 
   def index
     @books = Book.by_categories(params[:category_id]).ordered
@@ -10,7 +10,10 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  def show; end
+  def show
+    return if @book.reviews.blank?
+    @book.avg_rate = @book.reviews.average(:rate)
+  end
 
   def create
     @book = Book.new book_params
