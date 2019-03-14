@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "static_pages#home"
 
-  resources :books
+  resources :books do
+    resources :reviews
+  end
   resources :users
 
   get "users/new"

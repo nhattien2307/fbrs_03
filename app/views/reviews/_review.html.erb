@@ -1,0 +1,15 @@
+<div class="review">
+  <div class="review-rating" data-score="<%= review.rate %>"></div>
+  <p class="review-comment"><%= review.user.name %>: <%= review.content %></p>
+  <div>
+    <%= t("review.created_at", at: review.created_at) %>
+  </div>
+  <% if logged_in? %>
+    <% if current_user?(review.user) %>
+      <div class="links btn-group">
+        <%= link_to t("review.edit"), edit_book_review_path(review.book, review), class: "btn btn-custom" %>
+        <%= link_to t("review.delete"), book_review_path(review.book, review), method: :delete, data: {confirm: t("sure")}, class: "btn btn-custom" , class: "btn btn-custom"%>
+      </div>
+    <% end %>
+  <% end %>
+</div>

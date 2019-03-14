@@ -1,4 +1,5 @@
 en:
+  unsuccessful: "Unsuccessful"
   no_book: "There is no books currently in this category"
   all: "All books"
   selection: "Select a category"
@@ -43,13 +44,14 @@ en:
     sign_up_now: "Sign up now!"
   book:
     by: "From: "
-    avg_rate: "Average Rating"
+    avg_rate: "Average Rating:"
     add: "Add a new books"
     created: "Created a new book!"
     edited: "Edited a book!"
     edit: "Edit book"
     delete_book: "Deleted a book!"
     unsuccessfully_delete: "delete unsuccessfully!"
+    base: "Based on %{count} reviews"
   user:
     created: "Created a new account!"
     updated: "Edited a account!"
@@ -58,6 +60,18 @@ en:
     all_user: "All Users"
     users: "Users"
     suggest: "Suggest"
+  review:
+    rate: "Rating"
+    new: "New Reviews"
+    edit: "Edit Review"
+    delete: "Delete Review"
+    reviews: "Reviews"
+    add_review: "Add Reviews"
+    created: "Created a new review!"
+    edited: "Edited a review!"
+    deleted: "Deleted a review!"
+    unsuccessfully_delete: "delete unsuccessfully!"
+    created_at: "Reviews create at %{at}"
   activerecord:
     attributes:
       book:
@@ -73,3 +87,5 @@ en:
         address: "Address"
         password: "Password"
         password_confirmation: "Password Confirmation"
+      review:
+        content: "Content"
