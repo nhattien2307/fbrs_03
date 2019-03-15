@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources :books do
-    resources :reviews
+    resources :reviews do
+      resources :comments
+    end
   end
   resources :users
 

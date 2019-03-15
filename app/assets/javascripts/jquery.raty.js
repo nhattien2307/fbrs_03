@@ -740,7 +740,7 @@
     mouseover:    undefined,
     noRatedMsg:   'Not rated yet!',
     number:       10,
-    numberMax:    20,
+    numberMax:    10,
     path:         undefined,
     precision:    false,
     readOnly:     false,

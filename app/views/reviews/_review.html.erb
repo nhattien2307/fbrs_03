@@ -1,15 +1,34 @@
 <div class="review">
-  <div class="review-rating" data-score="<%= review.rate %>"></div>
-  <p class="review-comment"><%= review.user.name %>: <%= review.content %></p>
-  <div>
+  <div class="review-rating" data-score="<%= review.rate %>">
+  </div>
+  <p class="review-comment">
+    <b><%= review.user.name %>: </b>
+    <i>" <%= review.content %> "</i>
+  </p>
+  <div class="timestamp">
     <%= t("review.created_at", at: review.created_at) %>
   </div>
+
+  <% if review.comments.any? %>
+    <b><%= t "comment.comment" %></b>
+      <%= render review.comments %>
+  <% end %>
+
   <% if logged_in? %>
     <% if current_user?(review.user) %>
       <div class="links btn-group">
         <%= link_to t("review.edit"), edit_book_review_path(review.book, review), class: "btn btn-custom" %>
-        <%= link_to t("review.delete"), book_review_path(review.book, review), method: :delete, data: {confirm: t("sure")}, class: "btn btn-custom" , class: "btn btn-custom"%>
+        <%= link_to t("review.delete"), book_review_path(review.book, review), method: :delete, data: {confirm: t("sure")}, class: "btn btn-custom"%>
       </div>
     <% end %>
   <% end %>
+
+  <%= simple_form_for([@book, review, review.comments.build]) do |f| %>
+    <div class="content">
+      <%= f.input :content, placeholder: t("comment.new_comment") %>
+    </div>
+    <%= f.button :submit, class: "btn-custom2" %>
+  <% end %>
+<br>
 </div>
+
