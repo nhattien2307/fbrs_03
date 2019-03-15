@@ -12,12 +12,20 @@
         <span><%= t "book.by" %></span><%= @book.author %>
       </h3>
       <h2 class="avg-rating"><%= t "book.avg_rate" %></h2>
-      <div class="average_review-rating" data-score=<%= @book.avg_rate %>></div>
+      <div class="average_review-rating" data-score=<%= @book.avg_rate %>>
+      </div>
       <span class="number-of-reviews"><%= t("book.base", count: @book.reviews.count) %>
       </span>
       <p class="book-desc"><%= @book.content %></p>
     </div>
   </div>
+</div>
+
+<div class="links btn-group">
+  <%= link_to t("back"), books_path, class: "btn btn-custom" %>
+  <%= link_to t("edit"), edit_book_path(@book), class: "btn btn-custom" %>
+  <%= link_to t("delete"), book_path(@book),
+    method: :delete, data: {confirm: t("sure")}, class: "btn btn-custom" %>
 </div>
 
 <br>
@@ -35,10 +43,3 @@
 </div>
 
 <br>
-
-<div class="links btn-group">
-  <%= link_to t("back"), books_path, class: "btn btn-custom" %>
-  <%= link_to t("edit"), edit_book_path(@book), class: "btn btn-custom" %>
-  <%= link_to t("delete"), book_path(@book),
-    method: :delete, data: {confirm: t("sure")}, class: "btn btn-custom" %>
-</div>

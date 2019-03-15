@@ -72,6 +72,13 @@ en:
     deleted: "Deleted a review!"
     unsuccessfully_delete: "delete unsuccessfully!"
     created_at: "Reviews create at %{at}"
+  comment:
+    created: "Created a new comment"
+    deleted: "Deleted a comment!"
+    unsuccessfully_delete: "delete unsuccessfully!"
+    comment: "Comments: "
+    ago: " ago."
+    new_comment: "New comment..."
   activerecord:
     attributes:
       book:
@@ -89,3 +96,5 @@ en:
         password_confirmation: "Password Confirmation"
       review:
         content: "Content"
+      comment:
+        content: "  "

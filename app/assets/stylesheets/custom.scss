@@ -213,7 +213,8 @@ footer {
 .reviews {
   @include background-tile;
   margin-top: 40px;
-
+  float: right;
+  width: 66%;
   h1 {
     margin-top: 0;
     margin-bottom: 15px;
@@ -388,4 +389,19 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+.content{
+  display:block;
+  overflow: hidden;
+  margin:5px;
+}
+
+.review ul {
+  display: block;
+  list-style: none;
+}
+
+.timestamp {
+  color: #99A;
 }
