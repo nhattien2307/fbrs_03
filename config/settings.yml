@@ -21,3 +21,6 @@ session:
   remember_me: "1"
 gravatar_size:
   size: 50
+  size_mini: 30
+follow:
+  per_page: 10

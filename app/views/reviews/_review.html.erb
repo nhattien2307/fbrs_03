@@ -2,7 +2,7 @@
   <div class="review-rating" data-score="<%= review.rate %>">
   </div>
   <p class="review-comment">
-    <b><%= review.user.name %>: </b>
+    <b><%= review.user_name %>: </b>
     <i>" <%= review.content %> "</i>
   </p>
   <div class="timestamp">
@@ -11,7 +11,10 @@
 
   <% if review.comments.any? %>
     <b><%= t "comment.comment" %></b>
-      <%= render review.comments %>
+    <% review.comments.each do |comment| %>
+      <%= render partial: "comments/comment", locals: {comment: comment,
+        book: review.book} %>
+    <% end %>
   <% end %>
 
   <% if logged_in? %>

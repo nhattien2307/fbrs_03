@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :load_user, except: %i(index new create)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
+  before_action :load_unfollow, :load_follow, only: %i(show following followers)
 
   def index
     @users = User.paginate page: params[:page],
@@ -46,6 +47,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @title = t "following"
+    @users = @user.following.paginate page: params[:page],
+      per_page: Settings.follow.per_page
+    render :show_follow
+  end
+
+  def followers
+    @title = t "followers"
+    @users = @user.followers.paginate page: params[:page],
+      per_page: Settings.follow.per_page
+    render :show_follow
+  end
+
   private
 
   def load_user
@@ -73,5 +88,19 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to root_path unless current_user.admin?
+  end
+
+  def load_unfollow
+    @unfollow = current_user.active_relationships.find_by(followed_id: @user.id)
+    return if @unfollow
+    flash[:danger] = t "no_data"
+    redirect_to root_path
+  end
+
+  def load_follow
+    @follow = current_user.active_relationships.build
+    return if @follow
+    flash[:danger] = t "no_data"
+    redirect_to root_path
   end
 end

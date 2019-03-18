@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   root "static_pages#home"
 
+  resources :relationships, only: %i(create destroy)
   resources :books do
     resources :reviews do
       resources :comments
     end
   end
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   get "users/new"
   get "/signup", to: "users#new"
