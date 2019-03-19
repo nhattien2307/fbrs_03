@@ -15,6 +15,7 @@ en:
   no_data_review: "No review was found"
   no_data_comment: "No comment was found"
   no_data_suggest: "No suggest was found"
+  no_data_favorite: "No favorite"
   unsuccessful: "Unsuccessful"
   no_book: "There is no books currently in this category"
   all: "All books"
@@ -112,6 +113,11 @@ en:
     comment: "Comments: "
     ago: " ago."
     new_comment: "New comment..."
+  favorites:
+    favorite_success: "Marked favorite success"
+    unfavorite_success: "Unmarked favorite success"
+    favorite_fail: "Marked favorite fail"
+    unfavorite_fail: "Unmarked favorite fail"
   activerecord:
     attributes:
       book:

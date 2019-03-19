@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :logged_in_user, only: %i(new edit)
-  before_action :find_book, except: %i(index new create)
+  before_action :find_book, :build_favorite, except: %i(index new create)
 
   def index
     @books = Book.by_categories(params[:category_id]).ordered
@@ -58,6 +58,10 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit :title, :content, :category_id, :author,
       :quanlity, :book_img
+  end
+
+  def build_favorite
+    @favorite = @book.favorites.new
   end
 
   def find_book

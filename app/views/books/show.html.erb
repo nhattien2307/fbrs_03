@@ -16,7 +16,30 @@
       </div>
       <span class="number-of-reviews"><%= t("book.base", count: @book.reviews.count) %>
       </span>
-      <p class="book-desc"><%= @book.content %></p>
+      <div class="favorite">
+        <div>
+          <% if logged_in? %>
+            <% if favorite? @book %>
+              <%= link_to favorite_path(book_id: @book.id), method: :delete,
+                class: "btn btn-danger" do %>
+                <%= t "unfavorite" %>
+              <% end %>
+            <% else %>
+              <%= render "favorites/favorite" %>
+            <% end %>
+          <% else %>
+            <%= link_to login_path do %>
+              <%= render "favorites/favorite" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div>
+          <b><%= @book.favorites.count %> </b><i class="fa fa-heart" id = "heart"></i>
+        </div>
+      </div>
+      <div>
+        <p class="book-desc"><%= @book.content %></p>
+      </div>
     </div>
   </div>
 </div>
