@@ -38,21 +38,21 @@ class CommentsController < ApplicationController
   def find_book
     @book = Book.find_by id: params[:book_id]
     return if @book
-    flash[:danger] = t "no_data"
+    flash[:danger] = t "no_data_book"
     redirect_to root_path
   end
 
   def find_review
     @review = Review.find_by id: params[:review_id]
     return if @review
-    flash[:danger] = t "no_data"
+    flash[:danger] = t "no_data_review"
     redirect_to root_path
   end
 
   def find_comment
     @comment = Comment.find_by id: params[:id]
     return if @comment
-    flash[:danger] = t "no_data"
+    flash[:danger] = t "no_data_comment"
     redirect_to root_path
   end
 end

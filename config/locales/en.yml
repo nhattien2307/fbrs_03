@@ -1,4 +1,12 @@
 en:
+  an_error: "An error has occurred, please try again!"
+  following: "Following"
+  followers: "Followers"
+  follow: "Follow"
+  unfollow: "Unfollow"
+  no_data_book: "No book was found"
+  no_data_review: "No review was found"
+  no_data_comment: "No comment was found"
   unsuccessful: "Unsuccessful"
   no_book: "There is no books currently in this category"
   all: "All books"

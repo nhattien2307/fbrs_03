@@ -2,7 +2,7 @@
   <div class="cmt">
     <div class="comment">
       <span class="content">
-        <b><%= comment.user.name %>: </b>
+        <b><%= comment.user_name %>: </b>
         <i>" <%= comment.content %> "</i>
       </span>
       <span class="timestamp">
@@ -10,9 +10,8 @@
       </span>
     </div>
     <% if current_user?(comment.user) %>
-      <%= link_to t("delete"), book_review_comment_path(comment.review, comment),
-          method: :delete, data: {confirm: t("sure")}%>
+      <%= link_to t("delete"), book_review_comment_path(book,
+        comment.review, comment), method: :delete, data: {confirm: t("sure")} %>
     <% end %>
   </div>
 </ul>
-<hr>
