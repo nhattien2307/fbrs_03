@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_061401) do
+ActiveRecord::Schema.define(version: 2019_03_19_030909) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "target_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_061401) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["user_id"], name: "index_suggests_on_user_id"
   end
 

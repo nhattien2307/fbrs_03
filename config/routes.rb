@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root "static_pages#home"
 
+  namespace :admin do
+    resources :suggests, only: %i(update index)
+  end
   resources :relationships, only: %i(create destroy)
+  resources :suggests
   resources :books do
     resources :reviews do
       resources :comments

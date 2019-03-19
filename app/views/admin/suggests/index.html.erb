@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <h1><%= t "manage_suggest" %></h1>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t "index" %></th>
+          <th><%= t "user_name" %></th>
+          <th><%= t "book_name" %></th>
+          <th><%= t "category" %></th>
+          <th><%= t "publisher" %></th>
+          <th><%= t "author" %></th>
+          <th><%= t "number_page" %></th>
+          <th><%= t "status" %></th>
+          <th><%= t "action" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @suggests %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= will_paginate %>

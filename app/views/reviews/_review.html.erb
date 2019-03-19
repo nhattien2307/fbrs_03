@@ -20,8 +20,8 @@
   <% if logged_in? %>
     <% if current_user?(review.user) %>
       <div class="links btn-group">
-        <%= link_to t("review.edit"), edit_book_review_path(review.book, review), class: "btn btn-custom" %>
-        <%= link_to t("review.delete"), book_review_path(review.book, review), method: :delete, data: {confirm: t("sure")}, class: "btn btn-custom"%>
+        <%= link_to t("review.edit"), edit_book_review_path(review.book, review), class: "btn btn-warning" %>
+        <%= link_to t("review.delete"), book_review_path(review.book, review), method: :delete, data: {confirm: t("sure")}, class: "btn btn-danger" %>
       </div>
     <% end %>
   <% end %>

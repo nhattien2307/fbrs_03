@@ -1,0 +1,34 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="new-book-form">
+    <h1><%= t "suggest.add" %></h1>
+      <%= form_for current_user.suggests.build do |f| %>
+        <%= render "shared/error_messages", object: @suggest %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class="form-group">
+          <%= f.label :name_book %>
+          <%= f.text_field :name_book, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :category %>
+          <%= f.text_field :category, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :publisher %>
+          <%= f.text_field :publisher, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :author %>
+          <%= f.text_field :author, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :number_page %>
+          <%= f.text_field :number_page, class: "form-control" %>
+        </div>
+        <div class="actions">
+          <%= f.submit t("suggest.send"), class: "btn btn-success" %>
+          <%= link_to t("back"), suggests_path, class: "btn btn-default" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
