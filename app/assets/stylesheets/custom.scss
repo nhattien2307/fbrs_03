@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome';
 
 $gray-medium-light: #eaeaea;
 
@@ -442,4 +443,15 @@ input {
 
 .timestamp {
   color: #99A;
+}
+
+input.btn.btn-success {
+    width: 15%;
+}
+input.btn.btn-danger {
+    width: 15%;
+}
+
+#heart {
+  color: red;
 }

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :favorites
 
   get "users/new"
   get "/signup", to: "users#new"

@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   has_many :marks, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_attached_file :book_img, styles: {book_index: Settings.img.book_index,
                                         book_show: Settings.img.book_show},
     default_url: "/images/:style/missing.png"
