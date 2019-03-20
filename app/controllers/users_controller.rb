@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i(new edit)
+  before_action :logged_in_user, only: %i(edit destroy index)
   before_action :load_user, except: %i(index new create)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
@@ -92,15 +92,9 @@ class UsersController < ApplicationController
 
   def load_unfollow
     @unfollow = current_user.active_relationships.find_by(followed_id: @user.id)
-    return if @unfollow
-    flash[:danger] = t "no_data"
-    redirect_to root_path
   end
 
   def load_follow
     @follow = current_user.active_relationships.build
-    return if @follow
-    flash[:danger] = t "no_data"
-    redirect_to root_path
   end
 end

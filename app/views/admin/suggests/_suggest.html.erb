@@ -1,0 +1,18 @@
+<tr>
+  <td><%= suggest.id %></td>
+  <td><%= suggest.user_name %></td>
+  <td><%= suggest.name_book %></td>
+  <td><%= suggest.category %></td>
+  <td><%= suggest.publisher %></td>
+  <td><%= suggest.author %></td>
+  <td><%= suggest.number_page %></td>
+  <td><%= suggest.status %></td>
+  <td>
+    <% if suggest.waiting? %>
+      <%= link_to t("accept"), admin_suggest_path(suggest,
+        value: t("accepted")), method: :put, class: "btn btn-success" %>
+      <%= link_to t("reject"), admin_suggest_path(suggest,
+        value: t("rejected")), method: :put, class: "btn btn-danger" %>
+    <% end %>
+  </td>
+</tr>
