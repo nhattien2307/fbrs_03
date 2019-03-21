@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :logged_in_user, only: %i(new edit)
+  before_action :logged_in_user, only: %i(new edit create)
   before_action :find_book
   before_action :find_review
   before_action :find_comment, except: %i(new create)
@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @comment = @review.comments.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      target_activity @comment
       flash[:success] = t "comment.created"
       redirect_to book_path(@book)
     else
@@ -21,6 +22,7 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment.destroy
+      target_activity @comment
       flash[:success] = t "comment.deleted"
       redirect_to book_path(@book)
     else

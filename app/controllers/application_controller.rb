@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "login_plz"
     redirect_to login_path
   end
+
+  def target_activity(target, action = params[:action])
+    current_user.activities.create! action: action, target: target
+  end
 end

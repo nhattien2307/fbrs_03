@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  before_action :logged_in_user, only: %i(new edit)
-  before_action :find_book, except: %i(index new create findfavorite)
-  before_action :build_favorite, except: %i(index new create findfavorite)
+  before_action :logged_in_user, only: %i(new edit update)
+  before_action :find_book, only: %i(show edit update destroy)
+  before_action :build_favorite, only: :show
   before_action :book_favorite_by_user, only: :findfavorite
 
   def index
@@ -65,7 +65,7 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit :title, :content, :category_id, :author,
-      :quanlity, :book_img
+      :quanlity, :book_img, :number_page, :publisher
   end
 
   def build_favorite

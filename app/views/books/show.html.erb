@@ -43,14 +43,15 @@
     </div>
   </div>
 </div>
-
-<% if current_user.admin? %>
-  <div class="links btn-group">
-    <%= link_to t("back"), books_path, class: "btn btn-primary"  %>
-    <%= link_to t("edit"), edit_book_path(@book), class: "btn btn-warning" %>
-    <%= link_to t("delete"), book_path(@book),
-      method: :delete, data: {confirm: t("sure")}, class: "btn btn-danger" %>
-  </div>
+<% if logged_in? %>
+  <% if current_user.admin? %>
+    <div class="links btn-group">
+      <%= link_to t("back"), books_path, class: "btn btn-primary"  %>
+      <%= link_to t("edit"), edit_book_path(@book), class: "btn btn-warning" %>
+      <%= link_to t("delete"), book_path(@book),
+        method: :delete, data: {confirm: t("sure")}, class: "btn btn-danger" %>
+    </div>
+  <% end %>
 <% end %>
 
 <br>
