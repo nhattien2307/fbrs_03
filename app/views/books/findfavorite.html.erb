@@ -1,0 +1,6 @@
+<h2 class="all-book"><%= t "your_favorite" %></h2>
+<% if @book_favorites.any? %>
+  <div class="row">
+    <%= render @book_favorites %>
+  </div>
+<% end %>

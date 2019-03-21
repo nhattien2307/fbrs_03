@@ -1,9 +1,17 @@
 class BooksController < ApplicationController
   before_action :logged_in_user, only: %i(new edit)
-  before_action :find_book, :build_favorite, except: %i(index new create)
+  before_action :find_book, except: %i(index new create findfavorite)
+  before_action :build_favorite, except: %i(index new create findfavorite)
+  before_action :book_favorite_by_user, only: :findfavorite
 
   def index
-    @books = Book.by_categories(params[:category_id]).ordered
+    @books = Book.by_categories(params[:category_id]).newest.paginate page:
+      params[:page], per_page: Settings.per_page
+    return @books = @books.search_by(params[:search]) if params[:search]
+  end
+
+  def findfavorite
+    @book_favorites = Book.by_book_favorite(@book_favorite)
   end
 
   def new
@@ -69,5 +77,9 @@ class BooksController < ApplicationController
     return if @book
     flash[:danger] = t "no_data"
     redirect_to root_path
+  end
+
+  def book_favorite_by_user
+    @book_favorite = current_user.favorites.pluck(:book_id)
   end
 end

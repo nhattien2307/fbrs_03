@@ -13,7 +13,12 @@ class Book < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :author, presence: true, length: {maximum: Settings.book.author_max}
 
-  scope :ordered, ->{order "created_at DESC"}
+  scope :newest, ->{order created_at: :DESC}
   scope :by_categories,
     ->(category_ids){where category_id: category_ids if category_ids.present?}
+  scope :search_by, ->(search_term){
+    where "LOWER(title) LIKE :search_term OR LOWER(author) LIKE :search_term",
+      search_term: "%#{search_term.downcase}%"}
+  scope :by_book_favorite,
+    ->(book_ids){where id: book_ids if book_ids.present?}
 end

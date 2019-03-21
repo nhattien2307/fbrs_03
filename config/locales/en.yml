@@ -1,4 +1,10 @@
 en:
+  your_favorite: "Your favorite books:"
+  my_favorite: "My favorite"
+  favorite: "Favorite"
+  refine_search: "Refine your search:"
+  search: "search"
+  search_book: "Search books..."
   accepted: "accepted"
   rejected: "rejected"
   accept: "Accept"
