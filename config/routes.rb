@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   resources :favorites
 
+  get "/findfavorite", to: "books#findfavorite"
   get "users/new"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"

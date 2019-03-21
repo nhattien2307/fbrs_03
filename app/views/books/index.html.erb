@@ -1,5 +1,13 @@
 <% provide :title, t("book_index") %>
 
+<div class="search">
+  <h2><strong><%= t "refine_search" %></strong></h2><br>
+  <%= form_for "", url: books_path, role: t("search"), method: :get do %>
+    <%= text_field_tag t("search"), @search_term, placeholder: t("search_book"),
+      class: "form-control" %>
+  <% end %>
+</div>
+
 <h1 class="all-book"><%= t "all" %><br>
   <span class="dot"></span>
   <span class="dot"></span>
@@ -13,3 +21,5 @@
 <% else %>
   <h1><%= t "no_book" %></h1>
 <% end %>
+
+<%= will_paginate %>
