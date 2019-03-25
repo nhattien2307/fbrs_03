@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i(edit destroy index)
-  before_action :load_user, except: %i(index new create)
+  before_action :load_user, :load_activity, except: %i(index new create)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
   before_action :load_unfollow, :load_follow, only: %i(show following followers)
@@ -34,6 +34,21 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :edit
+    end
+  end
+
+  def setadmin
+    @user = User.find_by id: params[:id]
+    if @user.role == t("user")
+      @user.update(role: t("admin"))
+      flash[:success] = "set_admin"
+      redirect_to @user
+    elsif @user.role == t("admin")
+      @user.update(role: t("user"))
+      flash[:success] = t("destroy_admin")
+      redirect_to @user
+    else
+      flash[:danger] = t("set_fail")
     end
   end
 
@@ -72,7 +87,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :name, :email, :password,
-      :password_confirmation, :phone, :address
+      :password_confirmation, :phone, :address, :role
   end
 
   def logged_in_user
@@ -96,5 +111,10 @@ class UsersController < ApplicationController
 
   def load_follow
     @follow = current_user.active_relationships.build
+  end
+
+  def load_activity
+    @activities = Activity.by_user(@user.id).newest.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 end

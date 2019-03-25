@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.build favorites_params
     if @favorite.save
+      target_activity @favorite
       flash[:success] = t "favorites.favorite_success"
     else
       flash[:danger] = t "favorites.favorite_fail"
@@ -13,6 +14,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     if @favorite.destroy
+      target_activity @favorite
       flash[:success] = t "favorites.unfavorite_success"
     else
       flash[:danger] = t "favorites.unfavorite_fail"

@@ -2,7 +2,7 @@
 
 <div class="search">
   <h2><strong><%= t "refine_search" %></strong></h2><br>
-  <%= form_for "", url: books_path, role: t("search"), method: :get do %>
+  <%= form_tag books_path, role: t("search"), method: :get do %>
     <%= text_field_tag t("search"), @search_term, placeholder: t("search_book"),
       class: "form-control" %>
   <% end %>

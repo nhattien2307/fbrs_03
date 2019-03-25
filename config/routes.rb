@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
+      patch :setadmin
       get :following, :followers
     end
   end
   resources :favorites
+  resources :activities
 
   get "/findfavorite", to: "books#findfavorite"
   get "users/new"

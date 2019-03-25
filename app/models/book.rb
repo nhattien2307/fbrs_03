@@ -2,8 +2,8 @@ class Book < ApplicationRecord
   belongs_to :category
   has_many :marks, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :likes, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :activities, as: :target
   has_attached_file :book_img, styles: {book_index: Settings.img.book_index,
                                         book_show: Settings.img.book_show},
     default_url: "/images/:style/missing.png"
@@ -20,5 +20,5 @@ class Book < ApplicationRecord
     where "LOWER(title) LIKE :search_term OR LOWER(author) LIKE :search_term",
       search_term: "%#{search_term.downcase}%"}
   scope :by_book_favorite,
-    ->(book_ids){where id: book_ids if book_ids.present?}
+    ->(book_ids){where id: book_ids}
 end

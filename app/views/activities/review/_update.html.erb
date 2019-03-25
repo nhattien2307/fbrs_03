@@ -1,0 +1,9 @@
+<% if activity.target %>
+  <%= t "updated_on" %>
+  "<%= link_to activity.target.book.title, activity.target.book %>"
+  <span class="timestamp">
+    <i><%= time_ago_in_words(activity.created_at) %> <%= t "ago" %></i>
+  </span>
+<% else %>
+  <%= t "updated_on_del" %>
+<% end %>

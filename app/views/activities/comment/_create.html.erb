@@ -1,0 +1,9 @@
+<% if activity.target %>
+  <%= t "commented_on" %>
+  "<%= link_to activity.target.review.book_title, activity.target.review.book %>"
+  <span class="timestamp">
+    <i><%= time_ago_in_words(activity.created_at) %> <%= t "ago" %></i>
+  </span>
+<% else %>
+  <%= t "commented_on_del" %>
+<% end %>
