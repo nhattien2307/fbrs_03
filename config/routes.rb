@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "static_pages#home"
+  devise_for :users
 
   namespace :admin do
     resources :suggests, only: %i(update index)
@@ -13,10 +14,11 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
-      patch :setadmin
+      patch :update_role
       get :following, :followers
     end
   end
+
   resources :favorites
   resources :activities
 

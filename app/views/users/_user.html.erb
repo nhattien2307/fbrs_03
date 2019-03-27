@@ -5,9 +5,9 @@
     | <%= link_to t("delete"), user, method: :delete,
       data: {confirm: t("sure")} %>
   <% end %>
-  <% if current_user.admin? && user.role == t("user") %>
-    | <%= link_to t("set_admin"), setadmin_user_path(user), method: :patch %>
-  <% elsif current_user.admin? && user.role == t("admin") %>
-    | <%= link_to t("set_user"), setadmin_user_path(user), method: :patch %>
+  <% if current_user.admin? && user.role == "user" %>
+    | <%= link_to t("set_admin"), update_role_user_path(user), method: :patch %>
+  <% elsif current_user.admin? && user.role == "admin" %>
+    | <%= link_to t("set_user"), update_role_user_path(user), method: :patch %>
   <% end %>
 </li>

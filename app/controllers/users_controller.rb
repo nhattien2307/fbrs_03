@@ -1,29 +1,17 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i(edit destroy index)
-  before_action :load_user, :load_activity, except: %i(index new create)
+  before_action :load_user, :load_activity, except: :index
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
-  before_action :load_unfollow, :load_follow, only: %i(show following followers)
 
   def index
     @users = User.paginate page: params[:page],
       per_page: Settings.user.per_page
   end
 
-  def show; end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      flash[:success] = t "user.created"
-      redirect_to root_path
-    else
-      render :new
-    end
+  def show
+    @follow = current_user.active_relationships.build
+    @unfollow = current_user.active_relationships.find_by(followed_id: @user.id)
   end
 
   def edit; end
@@ -37,18 +25,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def setadmin
-    @user = User.find_by id: params[:id]
-    if @user.role == t("user")
-      @user.update(role: t("admin"))
-      flash[:success] = "set_admin"
+  def update_role
+    if @user.user?
+      @user.update role: "admin"
+      flash[:success] = t "setadmin"
       redirect_to @user
-    elsif @user.role == t("admin")
-      @user.update(role: t("user"))
-      flash[:success] = t("destroy_admin")
+    elsif @user.admin?
+      @user.update role: "user"
+      flash[:success] = t "destroy_admin"
       redirect_to @user
     else
-      flash[:danger] = t("set_fail")
+      flash[:danger] = t "set_fail"
     end
   end
 
@@ -91,10 +78,10 @@ class UsersController < ApplicationController
   end
 
   def logged_in_user
-    return if logged_in?
+    return if user_signed_in?
     store_location
     flash[:danger] = t "login_plz"
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 
   def correct_user
@@ -105,16 +92,8 @@ class UsersController < ApplicationController
     redirect_to root_path unless current_user.admin?
   end
 
-  def load_unfollow
-    @unfollow = current_user.active_relationships.find_by(followed_id: @user.id)
-  end
-
-  def load_follow
-    @follow = current_user.active_relationships.build
-  end
-
   def load_activity
-    @activities = Activity.by_user(@user.id).newest.paginate page: params[:page],
-      per_page: Settings.per_page
+    @activities = Activity.by_user(@user.id).newest.paginate page:
+      params[:page], per_page: Settings.per_page
   end
 end

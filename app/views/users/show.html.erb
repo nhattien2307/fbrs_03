@@ -6,6 +6,7 @@
         <h1><%= gravatar_for @user %></h1><br>
         <h2><%= @user.name %></h2><br>
         <p><%= t("phone_num") %><%= @user.phone %></p><br>
+        <p><%= t("email") %><%= @user.email %></p><br>
         <p><%= t("address") %><%= @user.address %></p><br>
         <p><%= t("role") %><%= @user.role %></p><br>
       </div>
@@ -13,7 +14,7 @@
     <section class="stats">
       <%= render "shared/stats" %>
     </section>
-    <%= render "follow_form" if logged_in? %>
+    <%= render "follow_form" if user_signed_in? %>
   </aside>
   <div class="col-md-8">
     <h3><%= t "activity" %></h3>
