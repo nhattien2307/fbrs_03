@@ -18,7 +18,7 @@
       </span>
       <div class="favorite">
         <div>
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <% if favorite? @book %>
               <%= link_to favorite_path(book_id: @book.id), method: :delete,
                 class: "btn btn-danger" do %>
@@ -43,7 +43,7 @@
     </div>
   </div>
 </div>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <% if current_user.admin? %>
     <div class="links btn-group">
       <%= link_to t("back"), books_path, class: "btn btn-primary"  %>
