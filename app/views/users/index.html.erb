@@ -1,8 +1,12 @@
 <% provide :title, t("user.all_user") %>
 <h1><%= t "user.all_user" %></h1>
-
 <ul class="users">
   <%= render @users %>
 </ul>
-
+<div class="container">
+  <p>
+    <%= t("download") %><%= link_to t("file_xls"), users_path(format: Settings.xls) %>
+    | <%= link_to t("file_csv"), users_path(format: Settings.csv) %>
+  </p>
+</div>
 <%= will_paginate %>

@@ -1,4 +1,7 @@
 en:
+  download: "Download: "
+  file_xls: "to excel"
+  file_csv: "to csv"
   current_confirm: "Currently waiting confirmation for: "
   unhappy: "Unhappy? "
   cancel: "Cancel my account"

@@ -20,6 +20,12 @@
       </tbody>
     </table>
   </div>
+  <div class="container">
+    <p>
+      <%= t("download") %><%= link_to t("file_xls"), admin_suggests_path(format: Settings.xls) %>
+      | <%= link_to t("file_csv"), admin_suggests_path(format: Settings.csv) %>
+    </p>
+  </div>
 </div>
 
 <%= will_paginate %>

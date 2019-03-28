@@ -5,6 +5,11 @@ class Admin::SuggestsController < ApplicationController
   def index
     @suggests = Suggest.includes(:user).newest.paginate page: params[:page],
       per_page: Settings.per_page
+    respond_to do |format|
+      format.html
+      format.csv { send_data @suggests.to_csv}
+      format.xls { send_data @suggests.to_csv(col_sep: "\t") }
+    end
   end
 
   def update
