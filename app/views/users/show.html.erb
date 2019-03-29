@@ -3,10 +3,14 @@
   <aside class="col-md-4">
     <section class="user_info">
       <div class="clearfix">
-        <h1><%= gravatar_for @user %></h1><br>
+        <% if @user.image %>
+          <div class="avatar"><%= image_tag(@user.image) %></div><br>
+        <% else %>
+          <h1><%= gravatar_for @user %></h1>
+        <% end %>
         <h2><%= @user.name %></h2><br>
-        <p><%= t("phone_num") %><%= @user.phone %></p><br>
         <p><%= t("email") %><%= @user.email %></p><br>
+        <p><%= t("phone_num") %><%= @user.phone %></p><br>
         <p><%= t("address") %><%= @user.address %></p><br>
         <p><%= t("role") %><%= @user.role %></p><br>
       </div>
