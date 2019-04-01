@@ -10,6 +10,9 @@ class Admin::SuggestsController < ApplicationController
       format.csv { send_data @suggests.to_csv}
       format.xls { send_data @suggests.to_csv(col_sep: "\t") }
     end
+    @q = Suggest.ransack params[:q]
+    @suggests = @q.result.newest.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def update

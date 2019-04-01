@@ -17,23 +17,23 @@
       <span class="number-of-reviews"><%= t("book.base", count: @book.reviews.count) %>
       </span>
       <div class="favorite">
-        <div>
+        <div class="favorite_<%= @book.id %>">
           <% if user_signed_in? %>
             <% if favorite? @book %>
               <%= link_to favorite_path(book_id: @book.id), method: :delete,
-                class: "btn btn-danger" do %>
+                remote: true, class: "btn btn-danger" do %>
                 <%= t "unfavorite" %>
               <% end %>
             <% else %>
               <%= render "favorites/favorite" %>
             <% end %>
           <% else %>
-            <%= link_to login_path do %>
+            <%= link_to new_user_session_path do %>
               <%= render "favorites/favorite" %>
             <% end %>
           <% end %>
         </div>
-        <div>
+        <div class=" count_favorite_<%= @book.id %>">
           <b><%= @book.favorites.count %> </b><i class="fa fa-heart" id = "heart"></i>
         </div>
       </div>

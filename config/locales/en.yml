@@ -1,4 +1,6 @@
 en:
+  selections: "---selection---"
+  placeholder_search: "Search ..."
   download: "Download: "
   file_xls: "to excel"
   file_csv: "to csv"
@@ -38,7 +40,7 @@ en:
   my_favorite: "My favorite"
   favorite: "Favorite"
   refine_search: "Refine your search:"
-  search: "search"
+  search: "Search"
   search_book: "Search books..."
   accepted: "accepted"
   rejected: "rejected"
@@ -111,7 +113,7 @@ en:
   author: "Author"
   number_page: "Number pages"
   created_at: "Created at"
-  status: "Status"
+  status: "Status:"
   action: "Action"
   static_pages:
     welcome: "Welcome to the Book Reviewing System!"
