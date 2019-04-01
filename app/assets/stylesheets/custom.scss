@@ -337,6 +337,16 @@ aside {
   margin-right: 10px;
 }
 
+.avatar {
+  float: left;
+  margin-right: 10px;
+  img {
+    width: 100px;
+    height: 100px;
+    padding-bottom: 20px;
+  }
+}
+
 .gravatar_edit {
   margin-top: 15px;
 }
