@@ -1,0 +1,2 @@
+$('.favorite_<%=@book.id%>').html('<%= j render partial: "favorites/favorite", local:{book: @book} %> ');
+$('.count_favorite_<%=@book.id%>').html('<%= @book.favorites.count %>');

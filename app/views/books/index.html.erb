@@ -1,19 +1,24 @@
 <% provide :title, t("book_index") %>
-
-<div class="search">
-  <h2><strong><%= t "refine_search" %></strong></h2><br>
-  <%= form_tag books_path, role: t("search"), method: :get do %>
-    <%= text_field_tag t("search"), @search_term, placeholder: t("search_book"),
-      class: "form-control" %>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="search-form col-md-4">
+      <%= search_form_for @q do |f| %>
+        <div class="field">
+          <%= f.label :title_cont, t("search_book") %>
+          <%= f.text_field :title_cont, class: "form-control",
+            placeholder: t("placeholder_search") %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <h1 class="all-book"><%= t "all" %><br>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      </h1>
+    </div>
+  </div>
 </div>
-
-<h1 class="all-book"><%= t "all" %><br>
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</h1>
-
 <% if @books.any? %>
   <div class="row">
     <%= render @books %>

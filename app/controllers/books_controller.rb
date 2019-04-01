@@ -7,7 +7,9 @@ class BooksController < ApplicationController
   def index
     @books = Book.by_categories(params[:category_id]).newest.paginate page:
       params[:page], per_page: Settings.per_page
-    return @books = @books.search_by(params[:search]) if params[:search]
+    @q = Book.ransack params[:q]
+    @books = @q.result.newest.paginate page:
+      params[:page], per_page: Settings.per_page
   end
 
   def findfavorite

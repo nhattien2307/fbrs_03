@@ -5,6 +5,10 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.build favorites_params
     if @favorite.save
       target_activity @favorite
+      respond_to do |format|
+        format.html{ redirect_to request.referrer }
+        format.js
+      end
       flash[:success] = t "favorites.favorite_success"
     else
       flash[:danger] = t "favorites.favorite_fail"
@@ -15,6 +19,10 @@ class FavoritesController < ApplicationController
   def destroy
     if @favorite.destroy
       target_activity @favorite
+      respond_to do |format|
+        format.html{ redirect_to request.referrer }
+        format.js
+      end
       flash[:success] = t "favorites.unfavorite_success"
     else
       flash[:danger] = t "favorites.unfavorite_fail"
