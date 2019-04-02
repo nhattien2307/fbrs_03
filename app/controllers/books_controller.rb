@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: %i(show edit update destroy)
   before_action :build_favorite, only: :show
   before_action :book_favorite_by_user, only: :findfavorite
+  authorize_resource
 
   def index
     @books = Book.by_categories(params[:category_id]).newest.paginate page:

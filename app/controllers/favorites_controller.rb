@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  authorize_resource
   before_action :load_favorite, only: :destroy
 
   def create

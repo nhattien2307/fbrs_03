@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :logged_in_user, only: %i(new edit)
   before_action :find_book
   before_action :find_review, except: %i(new create)
+  authorize_resource
 
   def new
     @review = Review.new

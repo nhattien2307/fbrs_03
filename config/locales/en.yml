@@ -1,4 +1,5 @@
 en:
+  not_allow: "Not allowed to access"
   selections: "---selection---"
   placeholder_search: "Search ..."
   download: "Download: "
@@ -115,6 +116,19 @@ en:
   created_at: "Created at"
   status: "Status:"
   action: "Action"
+  social_share_button:
+    share_to: Share to %{name}
+    twitter: Twitter
+    facebook: Facebook
+    google_plus: Google+
+    tumblr: Tumblr
+    pinterest: Pinterest
+    email: Email
+    linkedin: Linkedin
+    reddit: Reddit
+    xing: Xing
+    delicious: Delicious
+    telegram: Telegram
   static_pages:
     welcome: "Welcome to the Book Reviewing System!"
     introduce: "This is the Home page of System"

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :load_user, :load_activity, except: :index
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
+  authorize_resource
 
   def index
     @users = User.paginate page: params[:page],
