@@ -1,0 +1,22 @@
+<h1><%= t "hi" %><%= @suggest.user.name %>!</h1>
+<p><%= t "received" %></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t "book_name" %></th>
+      <th><%= t "category" %></th>
+      <th><%= t "publisher" %></th>
+      <th><%= t "author" %></th>
+      <th><%= t "number_page" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= @suggest.name_book %></td>
+    <td><%= @suggest.category %></td>
+    <td><%= @suggest.publisher %></td>
+    <td><%= @suggest.author %></td>
+    <td><%= @suggest.number_page %></td>
+  </tbody>
+</table>
+<h3><%= t "promise" %></h3>
+<h3><%= t "bye" %></h3>

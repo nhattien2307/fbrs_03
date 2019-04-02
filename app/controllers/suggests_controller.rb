@@ -13,6 +13,7 @@ class SuggestsController < ApplicationController
   def create
     @suggest = current_user.suggests.new suggest_params
     if @suggest.save
+      SendEmailJob.set(wait: 5.seconds).perform_later(@suggest)
       flash[:success] = t "suggest.created"
       redirect_to suggests_path(user_id: current_user)
     else
