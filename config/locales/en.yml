@@ -1,4 +1,9 @@
 en:
+  bye: "Good bye and wish you have a nice day!"
+  promise: "We will review the book that you have suggested as soon as possible"
+  received: "Thanks you, we received your suggestion to add a new book. Here your suggestion"
+  hi: "Hi "
+  thanks: "Thank for your suggestion"
   not_allow: "Not allowed to access"
   selections: "---selection---"
   placeholder_search: "Search ..."
