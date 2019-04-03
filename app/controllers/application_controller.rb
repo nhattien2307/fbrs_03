@@ -4,8 +4,14 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
   include BooksHelper
+  include CanCan::ControllerAdditions
 
-  private
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:danger] = t "not_allow"
+    redirect_to root_path
+  end
+
+  protected
 
   def logged_in_user
     return if user_signed_in?

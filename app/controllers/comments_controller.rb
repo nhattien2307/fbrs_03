@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :find_book
   before_action :find_review
   before_action :find_comment, except: %i(new create)
+  authorize_resource
 
   def new
     @comment = Comment.new
