@@ -13,6 +13,8 @@ class BooksController < ApplicationController
       params[:page], per_page: Settings.per_page
   end
 
+  def statistic_favorite_book; end
+
   def findfavorite
     @book_favorites = Book.by_book_favorite(@book_favorite)
   end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i(edit destroy index)
-  before_action :load_user, :load_activity, except: :index
+  before_action :load_user, except: :index
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
   authorize_resource
@@ -96,10 +96,5 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to root_path unless current_user.admin?
-  end
-
-  def load_activity
-    @activities = Activity.by_user(@user.id).newest.paginate page:
-      params[:page], per_page: Settings.per_page
   end
 end

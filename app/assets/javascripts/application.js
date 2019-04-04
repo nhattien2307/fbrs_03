@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
+//= require Chart.bundle
+//= require chartkick
 //= require turbolinks
 //= require social-share-button
 //= require_tree .

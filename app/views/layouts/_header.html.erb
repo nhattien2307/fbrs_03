@@ -32,6 +32,7 @@
             <% if current_user.admin? %>
               <li><%= link_to t("add_book"), new_book_path %></li>
               <li><%= link_to t("manage_suggest"), admin_suggests_path %></li>
+              <li><%= link_to t("statistic"), statistic_favorite_book_path %></li>
             <% end %>
             <li class="divider"></li>
             <li>

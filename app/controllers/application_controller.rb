@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
   include BooksHelper
+  include PublicActivity::StoreController
   include CanCan::ControllerAdditions
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -18,10 +19,6 @@ class ApplicationController < ActionController::Base
     store_location
     flash[:danger] = t "login_plz"
     redirect_to new_user_session_path
-  end
-
-  def target_activity target, action = params[:action]
-    current_user.activities.create! action: action, target: target
   end
 
   def configure_permitted_parameters

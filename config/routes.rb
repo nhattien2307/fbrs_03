@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :favorites
   resources :activities
 
+  get "/statistic_favorite_book", to: "books#statistic_favorite_book"
   get "/findfavorite", to: "books#findfavorite"
   get "users/new"
   get "/signup", to: "users#new"

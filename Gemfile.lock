@@ -84,6 +84,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (3.0.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.1)
@@ -222,6 +223,11 @@ GEM
     parser (2.6.2.0)
       ast (~> 2.4.0)
     powerpack (0.1.2)
+    public_activity (1.6.3)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.6)
@@ -350,6 +356,7 @@ DEPENDENCIES
   cancancan
   capybara (>= 2.15)
   carrierwave (= 1.2.2)
+  chartkick
   chromedriver-helper
   coffee-rails (~> 4.2)
   config
@@ -366,6 +373,7 @@ DEPENDENCIES
   omniauth (~> 1.9)
   omniauth-facebook (~> 5.0)
   paperclip (~> 6.1)
+  public_activity
   puma (~> 3.11)
   rails (~> 5.2.2)
   rails-i18n

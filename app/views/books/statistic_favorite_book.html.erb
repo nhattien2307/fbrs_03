@@ -1,0 +1,9 @@
+<%= bar_chart Favorite.joins(:book).group(:title).count,
+  title: t("title_chart_favorite"), xtitle: t("xtitle"),
+    ytitle: t("ytitle"), label: t("label_chart"), colors: ["#00FF00"] %>
+
+<br>
+
+<%= area_chart Review.joins(:book).group(:title).count,
+  title: t("title_chart_review"), ytitle: t("ytitle_review"),
+    xtitle: t("xtitle_review"), label: t("number_review"), colors: ["#FF0000"] %>
