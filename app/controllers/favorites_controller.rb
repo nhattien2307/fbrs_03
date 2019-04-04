@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
   def create
     @favorite = current_user.favorites.build favorites_params
     if @favorite.save
-      target_activity @favorite
+      @favorite.create_activity :create, owner: current_user
       respond_to do |format|
         format.html{ redirect_to request.referrer }
         format.js
@@ -19,7 +19,6 @@ class FavoritesController < ApplicationController
 
   def destroy
     if @favorite.destroy
-      target_activity @favorite
       respond_to do |format|
         format.html{ redirect_to request.referrer }
         format.js

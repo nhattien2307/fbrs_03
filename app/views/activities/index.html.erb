@@ -1,0 +1,9 @@
+<h1 class="all-book"><%= t "activity" %></h1>
+
+<% @activities.each do |activity| %>
+  <div class="activity">
+    <%= render "public_activity/#{activity.trackable_type.underscore}/#{activity.key}",activity: activity %>
+  </div>
+<% end %>
+
+<%= will_paginate %>

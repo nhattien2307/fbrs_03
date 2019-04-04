@@ -1,4 +1,0 @@
-<%= form_for activity do %>
-  <%= link_to activity.user_name, activity.user %>
-  <%= render "activities/#{activity.target_type.underscore}/#{activity.action}",activity: activity %>
-<% end %>

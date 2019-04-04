@@ -1,0 +1,16 @@
+<% if activity.trackable %>
+  <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+  <%= link_to activity.owner.name, activity.owner %>
+  <%= t "updated_on" %>
+  "<%= link_to activity.trackable.book_title, activity.trackable.book %>"
+  <span class="timestamp">
+    <i><%= time_ago_in_words(activity.created_at) %> <%= t "ago" %></i>
+  </span>
+<% else %>
+  <i class="fa fa-window-close fa-2x" aria-hidden="true"></i>
+  <%= link_to activity.owner.name, activity.owner %>
+  <%= t "updated_on_del" %>
+  <span class="timestamp">
+    <i><%= time_ago_in_words(activity.created_at) %> <%= t "ago" %></i>
+  </span>
+<% end %>
