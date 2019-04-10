@@ -10,7 +10,6 @@ class FavoritesController < ApplicationController
         format.html{ redirect_to request.referrer }
         format.js
       end
-      flash[:success] = t "favorites.favorite_success"
     else
       flash[:danger] = t "favorites.favorite_fail"
     end
@@ -23,7 +22,6 @@ class FavoritesController < ApplicationController
         format.html{ redirect_to request.referrer }
         format.js
       end
-      flash[:success] = t "favorites.unfavorite_success"
     else
       flash[:danger] = t "favorites.unfavorite_fail"
     end

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i(edit destroy index)
   before_action :load_user, except: :index
-  before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
   authorize_resource
 
@@ -23,23 +22,12 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update_attributes user_params
-      flash[:success] = t "user.updated"
-      redirect_to @user
-    else
-      render :edit
-    end
-  end
-
-  def update_role
-    if @user.user?
-      @user.update role: "admin"
-      flash[:success] = t "setadmin"
-      redirect_to @user
-    elsif @user.admin?
-      @user.update role: "user"
-      flash[:success] = t "destroy_admin"
-      redirect_to @user
+    @user.role = @user.admin? ? :user : :admin
+    if @user.save
+      respond_to do |format|
+        format.html{redirect_to request.referrer}
+        format.js
+      end
     else
       flash[:danger] = t "set_fail"
     end
@@ -88,10 +76,6 @@ class UsersController < ApplicationController
     store_location
     flash[:danger] = t "login_plz"
     redirect_to new_user_session_path
-  end
-
-  def correct_user
-    redirect_to root_path unless current_user?(@user)
   end
 
   def admin_user

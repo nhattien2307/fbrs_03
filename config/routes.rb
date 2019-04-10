@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
   resources :users do
     member do
-      patch :update_role
       get :following, :followers
     end
   end

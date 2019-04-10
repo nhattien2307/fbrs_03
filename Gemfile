@@ -27,6 +27,7 @@ gem "omniauth-facebook", "~> 5.0"
 gem "public_activity"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.2"
+gem "rails-controller-testing"
 gem "rails-i18n"
 gem "ransack"
 gem "rubocop", "~> 0.54.0", require: false

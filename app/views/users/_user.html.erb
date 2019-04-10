@@ -1,13 +1,12 @@
-<li>
+<li id="update_<%= user.id %>">
   <%= gravatar_for user, size: Settings.gravatar_size.size %>
   <%= link_to user.name, user %>
   <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to t("delete"), user, method: :delete,
-      data: {confirm: t("sure")} %>
-  <% end %>
-  <% if current_user.admin? && user.role == "user" %>
-    | <%= link_to t("set_admin"), update_role_user_path(user), method: :patch %>
-  <% elsif current_user.admin? && user.role == "admin" %>
-    | <%= link_to t("set_user"), update_role_user_path(user), method: :patch %>
+    <div style="float: right">
+      <%= link_to t("delete"), user, method: :delete, class: "fa fa-trash-o btn btn-danger",
+        data: {confirm: t("sure")} %>
+      <%= link_to user.admin? ? t("set_user") : t("set_admin"),
+        user_path(user), method: :patch, remote: true, class: "fa fa-check btn btn-success" %>
+    </div>
   <% end %>
 </li>

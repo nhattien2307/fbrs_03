@@ -11,6 +11,7 @@ class Ability
       can :manage, Suggest, user_id: user.id
       can :manage, Review, user_id: user.id
       can :manage, Comment, user_id: user.id
+      can :update, User, id: user.id
       can [:create, :destroy], Favorite
       can :findfavorite, Book
       can [:following, :followers], User
