@@ -1,0 +1,16 @@
+<% if activity.trackable %>
+  <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+  <%= link_to activity.owner.name, activity.owner %>
+  <%= t "commented_on" %>
+  "<%= link_to activity.trackable.review.book_title, activity.trackable.review.book %>"
+  <span class="timestamp">
+    <i><%= time_ago_in_words(activity.created_at) %> <%= t "ago" %></i>
+  </span>
+<% else %>
+  <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+  <%= link_to activity.owner.name, activity.owner %>
+  <%= t "commented_on_del" %>
+  <span class="timestamp">
+    <i><%= time_ago_in_words(activity.created_at) %> <%= t "ago" %></i>
+  </span>
+<% end %>

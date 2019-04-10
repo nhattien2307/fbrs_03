@@ -17,6 +17,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
+        <li><%= link_to t("activity"), activities_path %></li>
         <li><%= link_to t("my_suggests"),
           suggests_path(user_id: current_user) %></li>
         <li><%= link_to t("my_favorite"), findfavorite_path %></li>

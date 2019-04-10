@@ -20,14 +20,4 @@
     </section>
     <%= render "follow_form" if user_signed_in? %>
   </aside>
-  <div class="col-md-8">
-    <h3><%= t "activity" %></h3>
-    <% if @activities.any? %>
-      <% @activities.each do |activity| %>
-        <ul class="users follow">
-          <%= render partial: "activities/activities", locals: {activity: activity} %>
-        </ul>
-      <% end %>
-    <% end %>
-  </div>
 </div>
