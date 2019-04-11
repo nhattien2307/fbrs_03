@@ -188,6 +188,18 @@ en:
     favorite_fail: "Marked favorite fail"
     unfavorite_fail: "Unmarked favorite fail"
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            phonenumber:
+              too_long: "too long (maximum %{count} characters)"
+              too_short: "too short (minimum %{count} characters)"
+            name:
+              blank: "can't be blank"
+            password:
+              too_long: "too long (maximum %{count} characters)"
+              too_short: "too short (minimum %{count} characters)"
     attributes:
       book:
         title: "Book title"
